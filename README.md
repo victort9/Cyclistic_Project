@@ -17,7 +17,7 @@ The dataset consists of a single table with 13 columns and almost 3.4 million ro
 
 You can see all the SQL queries [HERE](https://github.com/victort9/Victor-Projects/tree/main/Query):
 
-![](images/Sales query.PNG)
+![](images/Query.PNG)
 
 ## Data model:
 You can see in this image the data model used in Tableau after the data was extracted.

@@ -5,7 +5,7 @@ UPDATE Cyclists
 SET trip_duration = (julianday(ended_at)-julianday(started_at))*1440
 
 
---deleting all the outliers (40974rows)
+--Deleting all the outliers (40974rows)
 DELETE FROM Cyclists
 WHERE trip_duration <=0.45 AND start_station_id = end_station_id
 OR trip_duration <=0

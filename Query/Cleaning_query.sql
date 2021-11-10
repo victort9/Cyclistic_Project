@@ -33,10 +33,3 @@ ALTER TABLE Cyclists
 ADD ended_at_hour TIME
 UPDATE Cyclists
 SET ended_at_hour = strftime('%H:%M:%S', ended_at)
-
-
---Creating new column "trip_duration" en minutos
-ALTER TABLE Cyclists
-ADD trip_duration TIME
-UPDATE Cyclists
-SET trip_duration = (julianday(ended_at)-julianday(started_at))*1440

@@ -1,20 +1,20 @@
 --Creating new column "trip_distance"
-ALTER TABLE clean
+ALTER TABLE Cyclists
 ADD trip_distance REAL
-ALTER TABLE clean
+ALTER TABLE Cyclists
 ADD square_lat REAL
-ALTER TABLE clean
+ALTER TABLE Cyclists
 ADD square_lng REAL
 
-UPDATE clean
+UPDATE Cyclists
 SET square_lat = square(end_lat-start_lat),
 square_lng = square(end_lng-start_lng)
 
-UPDATE clean
+UPDATE Cyclists
 SET trip_distance = (sqrt(square_lat+square_lng))
 
 --Deleting all the outliers (261856rows)
-DELETE FROM clean
+DELETE FROM Cyclists
 WHERE trip_distance <= 0
 
 --Summary Stats
@@ -24,10 +24,11 @@ avg(trip_distance) AS Mean,
 max(trip_distance) AS Max,
 min(trip_distance) AS Min,
 count(trip_distance) AS TPD
-FROM clean
+FROM Cyclists
 GROUP BY ymd, member_casual
 
-
-
-ALTER TABLE clean
-DROP trip_distance
+--Deleting the temporal columns used to get the distance
+ALTER TABLE Cyclists
+DROP square_lng
+ALTER TABLE Cyclists
+DROPsquare_lat

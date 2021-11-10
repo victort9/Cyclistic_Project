@@ -15,7 +15,7 @@ I've put my focus on the 2020 period as it's the most recent period where we hav
 
 The dataset consists of a single table with 13 columns and almost 3.4 million rows.
 
-You can see all the SQL queries [HERE](https://github.com/18f/midas):
+You can see all the SQL queries [HERE](https://github.com/victort9/Victor-Projects/tree/main/Query):
 
 ![](images/Sales query.PNG)
 

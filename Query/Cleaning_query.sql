@@ -34,26 +34,9 @@ ADD ended_at_hour TIME
 UPDATE Cyclists
 SET ended_at_hour = strftime('%H:%M:%S', ended_at)
 
---OTRA manera de hacerlo para sacar tiempo o date() para sacar la fecha
-ALTER TABLE Cyclists
-ADD ended_at_time TIME
-UPDATE Cyclists
-SET ended_at_time = time(started_at)
 
 --Creating new column "trip_duration" en minutos
 ALTER TABLE Cyclists
 ADD trip_duration TIME
 UPDATE Cyclists
 SET trip_duration = (julianday(ended_at)-julianday(started_at))*1440
-
-
-
-
---Prueba
-SELECT ride_id, rideable_type FROM Cyclists GROUP BY 2 
-LIMIT 100
-
-ALTER TABLE Cyclists DROP trip_duration
-CREATE TABLE clean as SELECT* from Cyclists
-SELECT CAST(REPLACE(started_at_hour, ':', '') AS TIME) as Prueba FROM Cyclists LIMIT 10
-SELECT pato FROM Cyclists
